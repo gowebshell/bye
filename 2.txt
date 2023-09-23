@@ -1,0 +1,11 @@
+# 定义要添加的新值
+$newValue = "CardSpace"
+
+# 获取当前的多字符串值
+$currentValue = Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Svchost" -Name "netsvcs"
+
+# 将新值添加到原有值的末尾
+if ($currentValue -ne $null) {
+    $currentValue.netsvcs += $newValue
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Svchost" -Name "netsvcs" -Value $currentValue.netsvcs
+}
