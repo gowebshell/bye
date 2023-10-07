@@ -1,0 +1,6 @@
+$newValue = "CardSpace"
+$currentValue = Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Svchost" -Name "netsvcs"
+if ($currentValue -ne $null) {
+    $currentValue.netsvcs += $newValue
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Svchost" -Name "netsvcs" -Value $currentValue.netsvcs
+}
